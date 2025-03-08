@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Consulta de Regiões - Shopee</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #121212;
+            text-align: center;
+            padding: 40px;
+            color: #fff;
+        }
+        .container {
+            background: #1e1e1e;
+            padding: 20px;
+            border-radius: 12px;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.5);
+            max-width: 450px;
+            margin: auto;
+        }
+        h1 {
+            color: #00aaff;
+        }
+        input {
+            width: 80px;
+            font-size: 18px;
+            text-align: center;
+            padding: 8px;
+            border-radius: 5px;
+            border: 1px solid #555;
+            background-color: #2a2a2a;
+            color: #fff;
+        }
+        button {
+            font-size: 18px;
+            padding: 10px 20px;
+            background-color: #00aaff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 10px;
+        }
+        button:hover {
+            background-color: #0088cc;
+        }
+        #resultado {
+            font-size: 18px;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 5px;
+            background-color: #2a2a2a;
+        }
+        .risco {
+            background-color: #ff4d4d;
+            color: #fff;
+            font-weight: bold;
+            padding: 10px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+        .erro {
+            color: #ff6666;
+            font-weight: bold;
+        }
+        .info {
+            font-size: 16px;
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 8px;
+            background-color: #262626;
+            color: #00aaff;
+            font-weight: bold;
+            text-align: center;
+            line-height: 1.5;
+        }
+        .info a {
+            color: #fff;
+            text-decoration: none;
+            font-weight: normal;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Consulta de Regiões - Shopee</h1>
+        <p>Digite a letra e descubra a região correspondente:</p>
+        <input type="text" id="letraInput" maxlength="1">
+        <button onclick="buscarRegiao()">Buscar</button>
+        <div id="resultado"></div>
+        
+        <div class="info">
+            Feito 100% com Inteligência Artificial<br>
+            Para mais soluções contate:<br>
+            <strong><a href="mailto:gilbertocintraon@gmail.com">gilbertocintraon@gmail.com</a></strong> ou <strong>(11) 99696-3735</strong>
+        </div>
+    </div>
+
+    <script>
+        function buscarRegiao() {
+            let letra = document.getElementById("letraInput").value.toUpperCase().trim();
+            
+            if (!/^[A-Z]$/.test(letra)) {
+                document.getElementById("resultado").innerHTML = "<p class='erro'>❌ Insira apenas letras de A-Z.</p>";
+                return;
+            }
+
+            let resultadoBox = document.getElementById("resultado");
+            resultadoBox.innerHTML = "";
+
+            let regioes = {
+                "A": {normal: "Suzano - Mogi das Cruzes", risco: ""},
+                "B": {normal: "Arujá - Parque Nossa Senhora do Carmo, Itaquaquecetuba", risco: "Itaquaquecetuba"},
+                "C": {normal: "Guarulhos - Parque Continental 3, Parque Flamengo, Taboão Guarulhos, Presidente Dutra", risco: "Proximidades do Aeroporto de Guarulhos"},
+                "D": {normal: "Zona Norte - Cachoeirinha, Casa Verde Alta, Jardim São Bento, Imirim, Lauzane, Jardim Peri, Água Fria", risco: "Vila Penteado, Jardim Brasilândia"},
+                "E": {normal: "Zona Oeste - Francisco Matarazzo, Franco da Rocha, Caieiras, Morro Grande, Cajamar, Tamboré", risco: ""},
+                "F": {normal: "Zona Oeste - Alphaville, Osasco (Mundo de Oz), Barueri", risco: ""},
+                "G": {normal: "Zona Norte - Água Branca, Limão", risco: "Nossa Senhora do Ó, Jardim Brasilândia"},
+                "H": {normal: "Zona Oeste - Granja Viana, Itapevi", risco: "Cotia"},
+                "I": {normal: "Embu das Artes e Taboão da Serra - Jardim Boa Vista, Jardim Iolanda", risco: ""},
+                "J": {normal: "Zona Norte - Parque dos Príncipes, Rio Pequeno", risco: "Carapicuíba"},
+                "K": {normal: "Taboão da Serra (ZS) - Jardim Helena", risco: "Campo Limpo, Parque Pirajussara"},
+                "L": {normal: "Zona Sul - Morumbi, Vila Olímpia, Pinheiros, Jardim Europa, Santo Amaro, Interlagos", risco: "Paraisópolis"},
+                "M": {normal: "Zona Sul - Moema, Brooklin Novo, Cidade Ademar", risco: "Jabaquara"},
+                "N": {normal: "São Bernardo do Campo e Diadema - Alves Dias, Bairro dos Casa, Demarchi", risco: ""},
+                "O": {normal: "Santo André e São Bernardo do Campo - Vila Assunção, Jardim Alvorada, Jardim Bom Pastor", risco: ""},
+                "P": {normal: "Zona Sul - Sacomã, Jardim Imperador, Paulicéia", risco: ""}
+            };
+            
+            if (!regioes[letra]) {
+                resultadoBox.innerHTML = "<p class='erro'>❌ Letra não encontrada. Verifique e tente novamente.</p>";
+                return;
+            }
+
+            let dados = regioes[letra];
+            let resultadoHTML = `<p><strong>Regiões:</strong> ${dados.normal || "Nenhuma região específica"}</p>`;
+            
+            if (dados.risco) {
+                resultadoHTML += `<p class='risco'>⚠️ Área de Risco: ${dados.risco}</p>`;
+            }
+
+            resultadoBox.innerHTML = resultadoHTML;
+        }
+    </script>
+</body>
+</html>
