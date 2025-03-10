@@ -21,7 +21,7 @@
             margin: auto;
         }
         h1 {
-            color: #00aaff;
+            color: #0a9396;
         }
         input {
             width: 100px;
@@ -30,14 +30,14 @@
             padding: 10px;
             border-radius: 8px;
             border: none;
-            background: linear-gradient(145deg, #2a2a2a, #1e1e1e);
+            background: linear-gradient(145deg, #292929, #1e1e1e);
             box-shadow: inset 5px 5px 10px #121212, inset -5px -5px 10px #2e2e2e;
             color: #fff;
         }
         button {
             font-size: 18px;
             padding: 12px 24px;
-            background: linear-gradient(145deg, #00aaff, #0088cc);
+            background: linear-gradient(145deg, #005f73, #0a9396);
             color: white;
             border: none;
             border-radius: 8px;
@@ -56,7 +56,7 @@
             transform: scale(0);
         }
         .risco {
-            background-color: #ff4d4d;
+            background-color: #bb3e03;
             color: #fff;
             font-weight: bold;
             padding: 10px;
@@ -120,30 +120,30 @@
             }
 
             let regioes = {
-                 "A": {normal: "Suzano - Mogi das Cruzes", risco: ""},
-                "B": {normal: "Arujá - Parque Nossa Senhora do Carmo, Itaquaquecetuba", risco: "Itaquaquecetuba"},
-                "C": {normal: "Guarulhos - Parque Continental 3, Parque Flamengo, Taboão Guarulhos, Presidente Dutra", risco: "Proximidades do Aeroporto de Guarulhos"},
-                "D": {normal: "Zona Norte - Cachoeirinha, Casa Verde Alta, Jardim São Bento, Imirim, Lauzane, Jardim Peri, Água Fria", risco: "Vila Penteado, Jardim Brasilândia"},
-                "E": {normal: "Zona Oeste - Francisco Matarazzo, Franco da Rocha, Caieiras, Morro Grande, Cajamar, Tamboré", risco: ""},
-                "F": {normal: "Zona Oeste - Alphaville, Osasco (Mundo de Oz), Barueri", risco: ""},
-                "G": {normal: "Zona Norte - Água Branca, Limão", risco: "Nossa Senhora do Ó, Jardim Brasilândia"},
-                "H": {normal: "Zona Oeste - Granja Viana, Itapevi", risco: "Cotia"},
+                "A": {normal: "Suzano - Mogi das Cruzes", risco: ""},
+                "B": {normal: "Arujá - Parque Nossa Senhora do Carmo", risco: "Itaquaquecetuba (B8 ao B14)"},
+                "C": {normal: "Guarulhos - Parque Continental 3, Parque Flamengo, Taboão Guarulhos", risco: "Proximidades do Aeroporto de Guarulhos (C1 ao C4)"},
+                "D": {normal: "Zona Norte - Cachoeirinha, Casa Verde Alta, Jardim São Bento, Imirim, Lauzane, Jardim Peri, Água Fria", risco: "Vila Penteado, Jardim Brasilândia (D13, D14, D8 e D12)"},
+                "E": {normal: "Francisco Matarazzo, Franco da Rocha, Caieiras, Morro Grande, Cajamar e Zona Oeste - Residencial Tamboré 11", risco: ""},
+                "F": {normal: "Zona Oeste - Alphaville, Osasco e Barueri", risco: ""},
+                "G": {normal: "Zona Norte - Água Branca, Limão", risco: "Nossa Senhora do Ó, Jardim Brasilândia (G4 ao G6)"},
+                "H": {normal: "Itapevi e Cotia - Granja Viana", risco: ""},
                 "I": {normal: "Embu das Artes e Taboão da Serra - Jardim Boa Vista, Jardim Iolanda", risco: ""},
-                "J": {normal: "Zona Norte - Parque dos Príncipes, Rio Pequeno", risco: "Carapicuíba"},
-                "K": {normal: "Taboão da Serra (ZS) - Jardim Helena", risco: "Campo Limpo, Parque Pirajussara"},
-                "L": {normal: "Zona Sul - Morumbi, Vila Olímpia, Pinheiros, Jardim Europa, Santo Amaro, Interlagos", risco: "Paraisópolis"},
-                "M": {normal: "Zona Sul - Moema, Brooklin Novo, Cidade Ademar", risco: "Jabaquara"},
+                "J": {normal: "Osasco e Carapicuíba - Parque dos Príncipes, Rio Pequeno", risco: ""},
+                "K": {normal: "Taboão da Serra (ZS) - Jardim Helena", risco: "Campo Limpo, Parque Pirajussara (K14, K1 e proximidades"},
+                "L": {normal: "Zona Sul - Morumbi, Vila Olímpia, Pinheiros, Jardim Europa, Santo Amaro, Interlagos", risco: "Paraisópolis (L5 e proximidades)"},
+                "M": {normal: "Zona Sul - Moema, Brooklin Novo, Cidade Ademar", risco: "Jabaquara (M13, M9 e M10"},
                 "N": {normal: "São Bernardo do Campo e Diadema - Alves Dias, Bairro dos Casa, Demarchi", risco: ""},
                 "O": {normal: "Santo André e São Bernardo do Campo - Vila Assunção, Jardim Alvorada, Jardim Bom Pastor", risco: ""},
                 "P": {normal: "Zona Sul - Sacomã, Jardim Imperador, Paulicéia", risco: ""},
-                "Q": {normal: "Mauá e Santo André - Jardim Itapeva, Jardim Oratório, Parque Erasmo Assunção", risco: "Iguatemi (Mauá)"},
-                "R": {normal: "Ferraz de Vasconcelos", risco: "Guaianases"},
-                "S": {normal: "Zona Leste - Jardim Imperador, Vila Metalúrgica", risco: "São Mateus"},
-                "T": {normal: "Guarulhos - Pimentas (T4 e T5)", risco: "Cumbica"},
-                "U": {normal: "Zona Norte - Jaçanã, Vila Gustavo, Vila Medeiros, Vila Sabrina, Vila Galvão, Guarulhos, Parque Continental 2", risco: "Jardim Brasil"},
-                "V": {normal: "Centro (São Caetano do Sul) - Santa Efigênia, Paraíso, Mooca, Barra Funda, Bom Retiro, Perdizes", risco: "Sé, Brás"},
-                "W": {normal: "Zona Leste - Vila Ré, Chácara Cruzeiro do Sul, Cangaíba", risco: "Penha"},
-                "X": {normal: "Zona Norte - Vila Maria, Parque Novo Mundo, Belém, Tatuapé e Parque São Jorge", risco: "Santana, Jardim Japão"}
+                "Q": {normal: "Mauá e Santo André - Jardim Itapeva, Jardim Oratório, Parque Erasmo Assunção", risco: "Iguatemi (Q5 e proximidades)"},
+                "R": {normal: "Ferraz de Vasconcelos", risco: "Guaianases (R9, R4 e proximidades"},
+                "S": {normal: "Zona Leste - Jardim Imperador, Vila Metalúrgica, Jardim Sapopemba", risco: "São Mateus (S14 e S13)"},
+                "T": {normal: "Guarulhos - Cumbica", risco: "Pimentas (T4 e T5), Ermelino Matarazzo (T11 ao T13)"},
+                "U": {normal: "Zona Norte e Guarulhos - Jaçanã, Vila Gustavo, Vila Medeiros, Vila Sabrina, Vila Galvão, Parque Continental 2", risco: "Jardim Brasil (U11)"},
+                "V": {normal: "Centro e São Caetano do Sul - Santa Efigênia, Paraíso, Mooca, Barra Funda, Bom Retiro, Perdizes", risco: "Sé, Brás (V6, V9 e V8)"},
+                "W": {normal: "Zona Leste - Penha, Vila Ré, Chácara Cruzeiro do Sul, Cangaíba", risco: ""},
+                "X": {normal: "Zona Norte - Vila Maria, Santana, Belém, Tatuapé, Jardim Japão e Parque São Jorge", risco: "Parque Novo Mundo (X9 e X8)"}
             };
 
             if (!regioes[letra]) {
